@@ -6,7 +6,7 @@ COPY . /app
 RUN /app/gradlew clean build
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app/build/libs/myapp.jar"]
+ENTRYPOINT ["java", "-jar", "/app/build/libs/ecsdemo-myapp.jar"]
 
 #RUNNING
 #
