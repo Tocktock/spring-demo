@@ -5,8 +5,17 @@
     {
       "dnsSearchDomains": null,
       "environmentFiles": null,
-      "logConfiguration": null,
-      "entryPoint": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "spring-demo",
+          "awslogs-region": "ap-northeast-2",
+          "awslogs-create-group": "true",
+          "awslogs-stream-prefix": "ecs-demo"
+        }
+      },
+      "entryPoint": null,
       "portMappings": [
         {
           "hostPort": 8080,
@@ -14,7 +23,7 @@
           "containerPort": 8080
         }
       ],
-      "command": [],
+      "command": null,
       "linuxParameters": null,
       "cpu": 0,
       "environment": [],
@@ -56,9 +65,15 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:312531585294:task-definition/spring-demo:1",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:312531585294:task-definition/spring-demo:5",
   "family": "spring-demo",
   "requiresAttributes": [
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
     {
       "targetId": null,
       "targetType": null,
@@ -69,7 +84,19 @@
       "targetId": null,
       "targetType": null,
       "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
       "name": "com.amazonaws.ecs.capability.task-iam-role"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
     }
   ],
   "pidMode": null,
@@ -79,7 +106,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "256",
-  "revision": 1,
+  "revision": 5,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
