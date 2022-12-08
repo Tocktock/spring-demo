@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "tars.ecs"
-version = "0.0.1"
+version = "myapp"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {

@@ -1,10 +1,12 @@
 FROM amazoncorretto:17
-WORKDIR /app
 
+WORKDIR /app/
 COPY . /app
+
 RUN /app/gradlew clean build
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app/build/libs/*.jar"]
+ENTRYPOINT ["java", "-jar", "/app/build/libs/myapp.jar"]
 
 #RUNNING
 #
@@ -16,4 +18,4 @@ ENTRYPOINT ["java", "-jar", "/app/build/libs/*.jar"]
 #WORKDIR /app/
 #EXPOSE 8080
 #
-#ENTRYPOINT ["java", "-jar", "/spring-demo/app.jar"]
+#ENTRYPOINT ["java", "-jar", "/spring-dem정o/app.jar"]
