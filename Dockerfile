@@ -1,5 +1,6 @@
 #BUILDER
 FROM openjdk:17
+COPY . .
 CMD ["./gradlew", "clean", "build"]
 COPY ./build/libs/*.jar /spring-demo/app.jar
 EXPOSE 8080
