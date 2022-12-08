@@ -1,10 +1,10 @@
-#BUILDER
-FROM openjdk:17
-COPY . .
-CMD ["./gradlew", "clean", "build"]
-COPY ./build/libs/*.jar /spring-demo/app.jar
+FROM amazoncorretto:17
+WORKDIR /app
+
+COPY . /app
+RUN /app/gradlew clean build
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/spring-demo/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/build/libs/*.jar"]
 
 #RUNNING
 #
