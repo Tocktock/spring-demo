@@ -5,16 +5,7 @@
     {
       "dnsSearchDomains": null,
       "environmentFiles": null,
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "secretOptions": null,
-        "options": {
-          "awslogs-group": "spring-demo",
-          "awslogs-region": "ap-northeast-2",
-          "awslogs-create-group": "true",
-          "awslogs-stream-prefix": "ecs-demo"
-        }
-      },
+      "logConfiguration": null,
       "entryPoint": null,
       "portMappings": [
         {
