@@ -11,4 +11,6 @@ class HealthController {
     fun healthy() = "healthy"
     @GetMapping("/hello")
     fun hello() = "healthy"
+    @GetMapping("/v2/hello/")
+    fun veHello() = "v2-Hello"
 }
