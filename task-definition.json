@@ -5,7 +5,15 @@
     {
       "dnsSearchDomains": null,
       "environmentFiles": null,
-      "logConfiguration": null,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "spring-demo-container",
+          "awslogs-region": "ap-northeast-2",
+          "awslogs-create-group": "true",
+          "awslogs-stream-prefix": "spring-demo"
+        }
+      },
       "entryPoint": null,
       "portMappings": [
         {
