@@ -1,10 +1,14 @@
-FROM amazoncorretto:17
+FROM amazoncorretto:17 as builder
 
 WORKDIR /app/
 COPY . /app
 
 RUN /app/gradlew clean build
 
+
+FROM amazoncorretto:17-alpine
+WORKDIR /app/
+COPY --from=builder /app/build/libs/ecsdemo-myapp.jar /app/build/libs/ecsdemo-myapp.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/app/build/libs/ecsdemo-myapp.jar"]
 
