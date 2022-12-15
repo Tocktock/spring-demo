@@ -1,4 +1,4 @@
-FROM gradle:7.5.1-jdk17 as builder
+FROM gradle:7.5.1-jdk17-alpine as builder
 
 
 WORKDIR /app/
@@ -8,7 +8,7 @@ RUN gradle build -x test --continue > /dev/null 2>&1 || true
 COPY . /app
 RUN gradle build -x test
 
-FROM amazoncorretto:17
+FROM amazoncorretto:17-alpine
 WORKDIR /app/
 COPY --from=builder /app/build/libs/ecsdemo-myapp.jar /app/build/libs/ecsdemo-myapp.jar
 EXPOSE 8080
