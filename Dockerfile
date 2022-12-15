@@ -1,12 +1,14 @@
-FROM amazoncorretto:17 as builder
+FROM gradle:7.5.1-jdk17 as builder
+
 
 WORKDIR /app/
+ADD build.gradle.kts /app/
+RUN gradle build -x test --continue > /dev/null 2>&1 || true
+
 COPY . /app
+RUN gradle build -x test
 
-RUN /app/gradlew clean build
-
-
-FROM amazoncorretto:17-alpine
+FROM amazoncorretto:17
 WORKDIR /app/
 COPY --from=builder /app/build/libs/ecsdemo-myapp.jar /app/build/libs/ecsdemo-myapp.jar
 EXPOSE 8080
