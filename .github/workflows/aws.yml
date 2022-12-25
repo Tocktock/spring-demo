@@ -71,17 +71,14 @@ jobs:
       id: build-image
       uses: docker/build-push-action@v2
       env:
-        ECR: ${{ steps.login-ecr.outputs.registry }}
-        TAG: ${{ github.sha }}
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}
       with:
         context: .
         push: true
-        tags: |
-          ${{env.ECR}}/${{env.TAG}}
+        tags: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         cache-from: type=gha
         cache-to: type=gha,mode=max
-        build-args: |
-
 
 #    - name: Build, tag, and push image to Amazon ECR
 #      id: build-image
